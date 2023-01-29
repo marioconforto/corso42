@@ -6,13 +6,14 @@
 /*   By: mconfort <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 12:32:36 by mconfort          #+#    #+#             */
-/*   Updated: 2023/01/21 13:45:06 by mconfort         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:03:58 by mconfort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include<stdio.h>
 //#include<string.h>
-//#include"libft.h" 
+#include"libft.h"
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int	i;
