@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mconfort <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 20:00:56 by mconfort          #+#    #+#             */
-/*   Updated: 2023/01/31 20:15:49 by mconfort         ###   ########.fr       */
+/*   Created: 2023/01/31 18:47:05 by mconfort          #+#    #+#             */
+/*   Updated: 2023/01/31 19:03:23 by mconfort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
+	size_t	j;
+	char	*src;
+	char	*tf;
 
-	i = ft_strlen(s);
-	if (c == '\0')
-		return (ft_strchr(s, '\0'));
-	while (s[i] != c)
-		i--;
-	return (((char *)s) + i);
+	i = 0;
+	j = 0;
+	src = (char *)haystack;
+	tf = (char *)needle;
+	if (*needle == '\0')
+		return (src);
+	while (src[i] != '\0' && i < len)
+	{
+		while (i + j < len && tf[j] != '\0' && src[i + j] == tf[j])
+		{
+			j++;
+			if (tf[j] == '\0')
+				return (src + i);
+		}
+		j = 0;
+		i++;
+	}
+	return (0);
 }
-/*
-int main()
-{
-	printf("%s\n", ft_strrchr('\0','\0'));
-}*/
