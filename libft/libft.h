@@ -6,7 +6,7 @@
 /*   By: mconfort <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 20:54:56 by mconfort          #+#    #+#             */
-/*   Updated: 2023/01/31 20:15:37 by mconfort         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:45:59 by mconfort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <stddef.h>
+
+# include <stdlib.h>
 
 # include <stdio.h>
 
@@ -54,5 +56,15 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+
+int		ft_atoi(const char *str);
+
+char	*ft_strdup(const char *s1);
+
+void	*ft_calloc(size_t count, size_t size);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
