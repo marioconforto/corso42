@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mconfort <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 18:51:13 by mconfort          #+#    #+#             */
-/*   Updated: 2023/02/07 20:26:27 by mconfort         ###   ########.fr       */
+/*   Created: 2023/02/07 19:17:51 by mconfort          #+#    #+#             */
+/*   Updated: 2023/02/07 19:27:29 by mconfort         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*dest;
-	size_t	i;
+	char	*united;
+	int		i;
+	int		j;
 
 	i = 0;
-	if (!s)
+	j = 0;
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	if (ft_strlen(s) <= start)
-		start = ft_strlen(s);
-	if (len + start >= ft_strlen(s))
-		len = ft_strlen(s) - start;
-	dest = (char *) malloc (sizeof(char) * (len + 1));
-	if (!dest)
+	united = (char *) malloc ((sizeof(char))
+			* (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (united == NULL)
 		return (NULL);
-	while (len--)
-		dest[i++] = s[start++];
-	dest[i] = '\0';
-	return (dest);
+	while (s1[j] != '\0')
+		united[i++] = s1[j++];
+	j = 0;
+	while (s2[j] != '\0')
+		united[i++] = s2[j++];
+	united[i] = '\0';
+	return (united);
 }
-/*
-int main()
-{
-	printf("%s\n",ft_substr("this is a string",2,5));
-	return (0);
-}*/
